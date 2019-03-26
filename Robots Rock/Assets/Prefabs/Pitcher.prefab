@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7502652826802849880}
   - component: {fileID: 6527997748957373841}
   - component: {fileID: 4003822654110714143}
-  - component: {fileID: 4266857785866522006}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -78,20 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4266857785866522006
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3802460260757735846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4940120597211088020
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +226,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1714165142705809742}
   - component: {fileID: 4052569520595696824}
+  - component: {fileID: 8568801974876362215}
+  - component: {fileID: 2180643958319692509}
   m_Layer: 10
   m_Name: Pitcher
   m_TagString: Untagged
@@ -280,3 +267,45 @@ MonoBehaviour:
     type: 3}
   spawnTransform: {fileID: 4141861652994037552}
   config: {fileID: 11400000, guid: 874c05dedd1a49e45ba673ef2e8aac8b, type: 2}
+--- !u!65 &8568801974876362215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778159174423093640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.7, z: 2}
+  m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!114 &2180643958319692509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778159174423093640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e013b7597f34ef4f92dd821b4ffae8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthConfig: {fileID: 11400000, guid: 6fa5359b747976944a0330e15a4aeffa, type: 2}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8778159174423093640}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

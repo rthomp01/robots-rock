@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4140936012923018641}
   - component: {fileID: 4746918190884650880}
   - component: {fileID: 5881507198934360535}
+  - component: {fileID: 6082450048611629387}
   m_Layer: 9
   m_Name: Robot
   m_TagString: Player
@@ -79,6 +80,35 @@ MonoBehaviour:
   animator: {fileID: 6542975143741225822}
   config: {fileID: 11400000, guid: 3fcaf5a09a6dce548ba44ad8617ce700, type: 2}
   punchCollider: {fileID: 2024642783386551129}
+--- !u!114 &6082450048611629387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881507198934360534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e013b7597f34ef4f92dd821b4ffae8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthConfig: {fileID: 11400000, guid: 5964622742c982344aa362abb19256fd, type: 2}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5881507198934360534}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &6542975143733790851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reflectPower: 5
-  onlyReflectsFromFront: 1
+  setToReflectorLayer: 1
 --- !u!1001 &6542975143733825086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,15 +637,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6542975143733825086}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6542975143733433530 stripped
+--- !u!4 &6542975143733433518 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400004, guid: 5c53ec4b53368423c8d252543d3a2905,
-    type: 3}
-  m_PrefabInstance: {fileID: 6542975143733825086}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6542975143733433510 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400024, guid: 5c53ec4b53368423c8d252543d3a2905,
+  m_CorrespondingSourceObject: {fileID: 400016, guid: 5c53ec4b53368423c8d252543d3a2905,
     type: 3}
   m_PrefabInstance: {fileID: 6542975143733825086}
   m_PrefabAsset: {fileID: 0}
@@ -634,6 +658,12 @@ Transform:
 --- !u!4 &6542975143733433512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400022, guid: 5c53ec4b53368423c8d252543d3a2905,
+    type: 3}
+  m_PrefabInstance: {fileID: 6542975143733825086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6542975143733433530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 5c53ec4b53368423c8d252543d3a2905,
     type: 3}
   m_PrefabInstance: {fileID: 6542975143733825086}
   m_PrefabAsset: {fileID: 0}
@@ -703,9 +733,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6542975143733825086}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6542975143733433518 stripped
+--- !u!4 &6542975143733433510 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400016, guid: 5c53ec4b53368423c8d252543d3a2905,
+  m_CorrespondingSourceObject: {fileID: 400024, guid: 5c53ec4b53368423c8d252543d3a2905,
     type: 3}
   m_PrefabInstance: {fileID: 6542975143733825086}
   m_PrefabAsset: {fileID: 0}

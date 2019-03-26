@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb134328f27eff40b35f8c3fa4fd435, type: 3}
-  m_Name: PitcherConfig
+  m_Script: {fileID: 11500000, guid: e1f0e9ddafddacc4d909134bef617062, type: 3}
+  m_Name: RobotHealth
   m_EditorClassIdentifier: 
-  pitchFrequency: 3
-  pitchSpeed: 2
+  maxHealth: 5
