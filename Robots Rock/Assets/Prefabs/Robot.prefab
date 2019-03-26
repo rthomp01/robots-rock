@@ -77,9 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6542975143741225822}
-  moveSpeed: 1.75
-  turnRate: 720
-  locomotionDampening: 0.1
+  config: {fileID: 11400000, guid: 3fcaf5a09a6dce548ba44ad8617ce700, type: 2}
 --- !u!1001 &6542975143733825086
 PrefabInstance:
   m_ObjectHideFlags: 0
