@@ -12,5 +12,4 @@ public class ControllerConfig : ScriptableObject
     public float airborneDuration = 0.666f;
     public float turnRate = 720.0f;
     public float inputDampening = 0.1f;
-
 }
