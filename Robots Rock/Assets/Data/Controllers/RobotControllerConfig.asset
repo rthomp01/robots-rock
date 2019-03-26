@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6700ad83fb2317246993f3422dc9e0a8, type: 3}
   m_Name: RobotControllerConfig
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  airborneSpeed: 1.75
+  walkSpeed: 1.4
+  airborneSpeed: 1
   turnRate: 720
-  locomotionDampening: 0.1
+  inputDampening: 0.1
