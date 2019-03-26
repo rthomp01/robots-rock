@@ -15,6 +15,9 @@ public class RobotStateGrounded : IState
         Debug.Log("Entered grounded state.");
     }
 
+    /// <summary>
+    /// While grounded the Robot can move, jump or attack.
+    /// </summary>
     public void Execute()
     {
         xMove = Mathf.SmoothDamp(xMove, Owner.PlayerInput.HorizontalMove, ref inputVelocity, Owner.config.inputDampening);
@@ -23,6 +26,11 @@ public class RobotStateGrounded : IState
         if (Owner.PlayerInput.JumpPressed)
         {
             Owner.StateMachine.ChangeState(new RobotStateJumping(Owner));
+            return;
+        }
+        else if(Owner.PlayerInput.AttackPressed)
+        {
+            Owner.StateMachine.ChangeState(new RobotStatePunching(Owner));
             return;
         }
     }

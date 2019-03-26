@@ -12,4 +12,16 @@ public class RobotAnimationEventHandler : MonoBehaviour
     {
         transform.parent.SendMessage("JumpEnded");
     }
+    public void PunchActivated()
+    {
+        transform.parent.SendMessage("PunchActivated");
+    }
+    public void PunchDeactivated()
+    {
+        transform.parent.SendMessage("PunchDeactivated");
+    }
+    public void PunchEnded()
+    {
+        transform.parent.SendMessage("PunchEnded");
+    }
 }

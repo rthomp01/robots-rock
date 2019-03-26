@@ -12,6 +12,7 @@ public class RobotController : MonoBehaviour
     //set in inspector
     public Animator animator;
     public ControllerConfig config;
+    public SphereCollider punchCollider;
 
     //private
     private Quaternion goalRotation;
@@ -62,21 +63,64 @@ public class RobotController : MonoBehaviour
         Rigidbody.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, config.turnRate * Time.deltaTime);
     }
 
-    //Triggered by event during jump animation clip
+    /// <summary>
+    /// Triggered by an event during the Jump_Modified animation clip. Used to time
+    /// vertical motion in sync with the animation provided.
+    /// </summary>
     public void StartJumpRoutine()
     {
         StartCoroutine(JumpRoutine());
     }
 
-    //Triggered by event at the end of jump animation clip
+    /// <summary>
+    /// Triggered by an event at the end of the Jump_Modified animation clip. Used to 
+    /// signal the end of the jump and change states back to grounded.
+    /// </summary>
     public void JumpEnded()
     {
         StateMachine.ChangeState(new RobotStateGrounded(this));
     }
 
-    //Jump handled by parabola lerp. airborneDuration is used to match the time spent in air
-    //with the visuals of the jump animation provided. height/distance/duration configurable 
-    //in ControllerConfig.
+    /// <summary>
+    /// Triggered by an event during the NormalPunch_Modified animation clip. Used to time
+    /// the enabling of the punch collider so that it's only active during a small window 
+    /// throughout the animation.
+    /// </summary>
+    public void PunchActivated()
+    {
+        if(punchCollider)
+        {
+            punchCollider.enabled = true;
+        }
+    }
+
+    /// <summary>
+    /// Triggered by an event during the NormalPunch_Modified animation clip. Used to time
+    /// the enabling of the punch collider so that it's only active during a small window 
+    /// throughout the animation.
+    /// </summary>
+    public void PunchDeactivated()
+    {
+        if (punchCollider)
+        {
+            punchCollider.enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// Triggered by event at the end of the NormalPunch_Modified animation clip. Used 
+    /// to signal the end of the punch and change states back to grounded.
+    /// </summary>
+    public void PunchEnded()
+    {
+        StateMachine.ChangeState(new RobotStateGrounded(this));
+    }
+
+    /// <summary>
+    /// Jump handled by parabolic lerp. airborneDuration is used to match the time spent in air
+    /// with the visuals of the jump animation provided. height/distance/duration configurable
+    /// in ControllerConfig.
+    /// </summary>
     IEnumerator JumpRoutine()
     {
         transform.rotation = goalRotation;
