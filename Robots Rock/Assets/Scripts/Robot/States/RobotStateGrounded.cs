@@ -18,6 +18,13 @@ public class RobotStateGrounded : IState
     public void Execute()
     {
         xMove = Mathf.SmoothDamp(xMove, Owner.PlayerInput.HorizontalMove, ref inputVelocity, Owner.config.inputDampening);
+        UpdateAnimator();
+
+        if (Owner.PlayerInput.JumpPressed)
+        {
+            Owner.StateMachine.ChangeState(new RobotStateJumping(Owner));
+            return;
+        }
     }
 
     public void ExecuteFixed()
@@ -25,14 +32,11 @@ public class RobotStateGrounded : IState
         Owner.Rigidbody.velocity = new Vector3(xMove * Owner.config.walkSpeed,
             Owner.Rigidbody.velocity.y, Owner.Rigidbody.velocity.z);
 
-        UpdateAnimator();
+        Owner.UpdateRotation();
     }
 
     public void UpdateAnimator()
     {
-        if (Owner.animator == null)
-            return;
-
         Owner.animator.SetFloat("WalkSpeed", Mathf.Abs(xMove));
     }
 
