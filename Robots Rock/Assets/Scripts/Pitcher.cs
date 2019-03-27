@@ -22,9 +22,9 @@ public class Pitcher : MonoBehaviour
     {
         while(IsPitching)
         {
-            yield return new WaitForSeconds(config.pitchFrequency);
             Rigidbody rb = Instantiate<Rigidbody>(pitchablePrefab, spawnTransform.position, spawnTransform.rotation);
             rb.velocity = spawnTransform.forward * config.pitchSpeed;
+            yield return new WaitForSeconds(config.pitchFrequency);
         }
     }
 }
