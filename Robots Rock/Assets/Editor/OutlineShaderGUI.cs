@@ -29,5 +29,7 @@ public class OutlineShaderGUI : ShaderGUI
         }
         EditorGUI.indentLevel--;
         EditorGUILayout.Space();
+
+        materialEditor.RenderQueueField();
     }
 }
