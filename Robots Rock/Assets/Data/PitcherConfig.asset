@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PitcherConfig
   m_EditorClassIdentifier: 
   pitchFrequency: 5
-  pitchSpeed: 2
+  minPitchSpeedModifier: 0.75
+  maxPitchSpeedModifier: 1.35

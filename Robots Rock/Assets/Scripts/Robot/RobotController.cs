@@ -11,6 +11,7 @@ public class RobotController : MonoBehaviour
 
     //set in inspector
     public Animator animator;
+    [Tooltip("Use Create->Configuration->Controller")]
     public ControllerConfig config;
     public SphereCollider punchCollider;
 

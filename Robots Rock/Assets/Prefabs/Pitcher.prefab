@@ -263,10 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a1431c7730394b803ee9a35e70081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchablePrefab: {fileID: 811936248728507845, guid: 6d0b5c8c25af5634b989cfd23691d354,
-    type: 3}
-  spawnTransform: {fileID: 4141861652994037552}
+  pitchableObjects:
+  - {fileID: 11400000, guid: 4a3b59a8be5c3fd45bcf7d778e94a429, type: 2}
+  - {fileID: 11400000, guid: 4a3b59a8be5c3fd45bcf7d778e94a429, type: 2}
+  - {fileID: 11400000, guid: 557eb525640492140bfd43c03c1b2d61, type: 2}
   config: {fileID: 11400000, guid: 874c05dedd1a49e45ba673ef2e8aac8b, type: 2}
+  spawnTransform: {fileID: 4141861652994037552}
 --- !u!65 &8568801974876362215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -316,7 +318,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

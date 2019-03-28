@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f0e9ddafddacc4d909134bef617062, type: 3}
-  m_Name: RobotHealth
+  m_Script: {fileID: 11500000, guid: 53ca344cb1507ca4a9d9c0161d1885f1, type: 3}
+  m_Name: FireballProjectile
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  prefab: {fileID: 811936248728507845, guid: 39c4e9ff554d9f645b12fa90555c1606, type: 3}
+  baseSpeed: 4

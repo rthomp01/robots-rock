@@ -6,5 +6,6 @@ using UnityEngine;
 public class PitcherConfig : ScriptableObject
 {
     public float pitchFrequency;
-    public float pitchSpeed;
+    public float minPitchSpeedModifier;
+    public float maxPitchSpeedModifier;
 }

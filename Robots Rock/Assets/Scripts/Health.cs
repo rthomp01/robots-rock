@@ -12,6 +12,16 @@ public class Health : MonoBehaviour, IDamageable
 
     public int CurrentHealth { get; private set; }
 
+    private void Awake()
+    {
+        CurrentHealth = healthConfig.maxHealth;
+
+        if (transform != transform.root)
+        {
+            Debug.LogWarning("WARNING: If health component is not on the root transform, damage will not work correctly.");
+        }
+    }
+
     public void Die()
     {
         if (onDeath != null)
@@ -30,10 +40,5 @@ public class Health : MonoBehaviour, IDamageable
         {
             Die();
         }
-    }
-
-    private void Awake()
-    {
-        CurrentHealth = healthConfig.maxHealth;
     }
 }

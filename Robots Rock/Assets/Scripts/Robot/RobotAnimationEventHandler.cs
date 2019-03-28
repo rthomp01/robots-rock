@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class RobotAnimationEventHandler : MonoBehaviour
 {
+    public RobotController controller;
+
     public void StartJumpRoutine()
     {
-        transform.parent.SendMessage("StartJumpRoutine");
+        controller.StartJumpRoutine();
     }
     public void JumpEnded()
     {
-        transform.parent.SendMessage("JumpEnded");
+        controller.JumpEnded();
     }
     public void PunchActivated()
     {
-        transform.parent.SendMessage("PunchActivated");
+        controller.PunchActivated();
     }
     public void PunchDeactivated()
     {
-        transform.parent.SendMessage("PunchDeactivated");
+        controller.PunchDeactivated();
     }
     public void PunchEnded()
     {
-        transform.parent.SendMessage("PunchEnded");
+        controller.PunchEnded();
     }
 }

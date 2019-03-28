@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ball
+  - RobotFist
   layers:
   - Default
   - TransparentFX

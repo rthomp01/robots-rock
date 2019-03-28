@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class DamageOnTouch : MonoBehaviour
 {
+    public List<string> ignoreTags = new List<string>();
+
     public int damageAmount = 1;
     public bool disableOnHit = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        IDamageable d = other.GetComponent<IDamageable>();
+        if (ignoreTags.Contains(other.tag))
+            return;
+
+        IDamageable d = other.transform.root.GetComponent<IDamageable>();
+
         if (d != null)
         {
             d.TakeDamage(damageAmount);
