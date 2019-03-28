@@ -208,7 +208,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CameraShakeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  shakeMagnitude: 0.1
+  xShake: 0.15
+  yShake: 0
   shakeDuration: 0.1
 --- !u!1001 &6542975143733825086
 PrefabInstance:
