@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BallReflector : MonoBehaviour
 {
     public float reflectPower = 3.0f;
     public bool setToReflectorLayer = true;
+
+    public CameraShakeEvent cameraShakeEvent;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +25,11 @@ public class BallReflector : MonoBehaviour
         if(setToReflectorLayer)
         {
             target.gameObject.layer = gameObject.layer;
+        }
+
+        if(cameraShakeEvent != null)
+        {
+            cameraShakeEvent.Invoke(1f , 1f);
         }
     }
 }
