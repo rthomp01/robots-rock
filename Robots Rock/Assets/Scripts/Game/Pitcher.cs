@@ -19,10 +19,18 @@ public class Pitcher : MonoBehaviour
 
     public bool IsPitching { get; private set; }
 
-    private void Start()
+    private Coroutine pitchRoutine;
+
+    private void OnEnable()
     {
         IsPitching = true;
-        StartCoroutine(PitchRoutine());
+        pitchRoutine = StartCoroutine(PitchRoutine());
+    }
+
+    private void OnDisable()
+    {
+        IsPitching = false;
+        StopCoroutine(pitchRoutine);
     }
 
     IEnumerator PitchRoutine()

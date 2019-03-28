@@ -7,14 +7,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //Set in Inspector
+    public GameLoopConfig gameLoopConfig;
     public RobotController playerController;
     public Pitcher pitcher;
     public Text messageText;
     public Text promptText;
+    public Image titlePanel;
     //
 
     public bool IsGameOver { get; private set; }
     public bool PlayerWins { get; private set; }
+
+    Coroutine messageRoutine;
 
     private void Start()
     {
@@ -32,13 +36,18 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator TitleRoutine()
     {
+        yield return new WaitForSeconds(gameLoopConfig.titlePreActiveDelay);
+
+        promptText.gameObject.SetActive(true);
+
         while (true)
         {
-            if(Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                promptText.enabled = false;
-                messageText.text = "READY?";
-                yield return new WaitForSeconds(3.0f);
+                titlePanel.gameObject.SetActive(false);
+                promptText.gameObject.SetActive(false);
+                SetMessageText("READY?", gameLoopConfig.readyWaitDelay);
+                yield return new WaitForSeconds(gameLoopConfig.readyWaitDelay);
                 break;
             }
             yield return null;
@@ -50,9 +59,8 @@ public class GameManager : MonoBehaviour
         playerController.enabled = true;
         pitcher.enabled = true;
 
-        messageText.text = "GO!";
-        yield return new WaitForSeconds(1.0f);
-        messageText.text = "";
+        SetMessageText("GO!", gameLoopConfig.goMessageActiveDelay);
+        yield return new WaitForSeconds(gameLoopConfig.goMessageActiveDelay);
 
         while (!IsGameOver)
         {
@@ -65,12 +73,17 @@ public class GameManager : MonoBehaviour
         playerController.enabled = false;
         pitcher.enabled = false;
 
-        messageText.text = PlayerWins ? "YOU WIN!" : "YOU LOSE.";
-        promptText.enabled = true;
+        titlePanel.gameObject.SetActive(true);
+        string gameOverMessage = PlayerWins ? "YOU WIN" : "YOU LOSE";
+        SetMessageText(gameOverMessage, 0.0f);
+
+        yield return new WaitForSeconds(gameLoopConfig.gameOverMessageDelay);
+
+        promptText.gameObject.SetActive(true);
 
         while (true)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 break;
             }
@@ -82,5 +95,34 @@ public class GameManager : MonoBehaviour
     {
         PlayerWins = victory;
         IsGameOver = true;
+    }
+
+    /// <summary>
+    /// Shows a message on screen for specified duration.
+    /// </summary>
+    /// <param name="text">Text to display in message.</param>
+    /// <param name="duration">Time on screen. Use 0.0f for persistent message</param>
+    void SetMessageText(string text, float duration)
+    {
+        if (messageRoutine != null)
+        {
+            StopCoroutine(messageRoutine);
+        }
+
+        messageRoutine = StartCoroutine(ShowMessageRoutine(text, duration));
+    }
+
+    IEnumerator ShowMessageRoutine(string text, float messageDuration)
+    {
+        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, 0.0f);
+        messageText.text = text;
+        messageText.GetComponent<Animation>().Play("MessageFadeIn");
+
+        yield return new WaitForSeconds(messageDuration);
+
+        if (messageDuration != 0.0f)
+        {
+            messageText.GetComponent<Animation>().Play("MessageFadeOut");
+        }
     }
 }

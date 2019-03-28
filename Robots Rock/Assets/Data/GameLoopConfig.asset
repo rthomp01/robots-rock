@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f0e9ddafddacc4d909134bef617062, type: 3}
-  m_Name: RobotHealth
+  m_Script: {fileID: 11500000, guid: 669aecc37fe521b41ad5ea543a2381ab, type: 3}
+  m_Name: GameLoopConfig
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  titlePreActiveDelay: 2
+  readyWaitDelay: 3
+  goMessageActiveDelay: 1.25
+  gameOverMessageDelay: 1.5
