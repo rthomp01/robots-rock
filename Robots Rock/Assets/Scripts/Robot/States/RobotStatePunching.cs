@@ -10,8 +10,8 @@ public class RobotStatePunching : IState
     public void Enter()
     {
         Debug.Log("Entered punching state.");
-
         Owner.Rigidbody.velocity = Vector3.zero;
+        Owner.SnapToGoalRotation();
         Owner.animator.SetTrigger("Punch");
     }
 

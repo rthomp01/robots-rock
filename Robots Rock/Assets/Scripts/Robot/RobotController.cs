@@ -64,6 +64,11 @@ public class RobotController : MonoBehaviour
         Rigidbody.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, config.turnRate * Time.deltaTime);
     }
 
+    public void SnapToGoalRotation()
+    {
+        transform.rotation = goalRotation;
+    }
+
     /// <summary>
     /// Triggered by an event during the Jump_Modified animation clip. Used to time
     /// vertical motion in sync with the animation provided.
@@ -124,8 +129,6 @@ public class RobotController : MonoBehaviour
     /// </summary>
     IEnumerator JumpRoutine()
     {
-        transform.rotation = goalRotation;
-
         Vector3 goal = transform.position + transform.forward * config.jumpDistance;
         Vector3 origin = transform.position;
 

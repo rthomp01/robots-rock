@@ -11,6 +11,7 @@ public class RobotStateJumping : IState
     {
         Debug.Log("Entered jumping state.");
         Owner.Rigidbody.velocity = Vector3.zero;
+        Owner.SnapToGoalRotation();
         Owner.animator.SetTrigger("Jump");
     }
 
