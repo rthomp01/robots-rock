@@ -9,6 +9,9 @@ public class BallReflector : MonoBehaviour
     public bool setToReflectorLayer = true;
 
     public CameraShakeEvent cameraShakeEvent;
+    public float xShake;
+    public float yShake;
+    public float shakeDuration;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,7 +32,7 @@ public class BallReflector : MonoBehaviour
 
         if(cameraShakeEvent != null)
         {
-            cameraShakeEvent.Invoke(1f , 1f);
+            cameraShakeEvent.Invoke(shakeDuration, xShake, yShake);
         }
     }
 }

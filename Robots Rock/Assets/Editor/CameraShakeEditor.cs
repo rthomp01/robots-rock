@@ -6,8 +6,9 @@ using UnityEditor;
 [CustomEditor(typeof(CameraShake))]
 public class CameraShakeEditor : Editor
 {
-    float debugMagnitude;
-    float debugDuration;
+    float debug_xShake = 1.0f;
+    float debug_yShake = 1.0f;
+    float debugDuration = 1.0f;
 
     public override void OnInspectorGUI()
     {
@@ -23,12 +24,13 @@ public class CameraShakeEditor : Editor
         EditorGUI.indentLevel++;
         if (Application.isPlaying)
         {
-            debugMagnitude = EditorGUILayout.FloatField("Test Magnitude:", debugMagnitude);
             debugDuration = EditorGUILayout.FloatField("Test Duration:", debugDuration);
+            debug_xShake = EditorGUILayout.FloatField("Test xShake:", debug_xShake);
+            debug_yShake = EditorGUILayout.FloatField("Test yShake:", debug_yShake);
 
             if (GUILayout.Button("Test Shake"))
             {
-                thisScript.ShakeCamera(debugMagnitude, debugDuration);
+                thisScript.ShakeCamera(debugDuration, debug_xShake, debug_yShake);
             }
         }
         EditorGUI.indentLevel--;
