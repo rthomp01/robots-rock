@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 4052569520595696824}
   - component: {fileID: 8568801974876362215}
   - component: {fileID: 2180643958319692509}
+  - component: {fileID: 2001896032}
   m_Layer: 10
   m_Name: Pitcher
   m_TagString: Untagged
@@ -322,3 +323,36 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2001896032}
+        m_MethodName: StartFlashing
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2001896032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778159174423093640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7c897eda925704486ef713ddce7b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRenderers:
+  - {fileID: 7525370271965985148}
+  - {fileID: 4003822654110714143}
+  flashIntensity: 0.85
+  flashColor: {r: 1, g: 0, b: 0, a: 0}

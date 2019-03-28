@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f0e9ddafddacc4d909134bef617062, type: 3}
   m_Name: RobotHealth
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100

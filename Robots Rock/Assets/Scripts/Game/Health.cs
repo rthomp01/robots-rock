@@ -8,6 +8,7 @@ public class Health : MonoBehaviour, IDamageable
     //Set in Inspector
     public HealthConfig healthConfig;
     public UnityEvent onDeath;
+    public UnityEvent onHit;
     //
 
     public int CurrentHealth { get; private set; }
@@ -35,6 +36,11 @@ public class Health : MonoBehaviour, IDamageable
     public void TakeDamage(int amount)
     {
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
+
+        if(onHit != null)
+        {
+            onHit.Invoke();
+        }
 
         if (CurrentHealth <= 0)
         {
