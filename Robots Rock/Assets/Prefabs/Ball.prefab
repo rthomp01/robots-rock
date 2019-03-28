@@ -185,5 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreTags:
   - RobotFist
+  onHitEffect: {fileID: 198044318287895918, guid: 638c8ca438a11c54987de876e500ed02,
+    type: 3}
   damageAmount: 1
   disableOnHit: 1

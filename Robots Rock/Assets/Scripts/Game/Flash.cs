@@ -19,7 +19,10 @@ public class Flash : MonoBehaviour
         {
             foreach (Material m in r.materials)
             {
-                originalColors.Add(m, m.color);
+                if (m.HasProperty("_Color"))
+                {
+                    originalColors.Add(m, m.color);
+                }
             }
         }
     }
@@ -39,7 +42,10 @@ public class Flash : MonoBehaviour
         {
             foreach (Material mat in r.materials)
             {
-                mat.color = Color.Lerp(mat.color, flashColor, 0.5f);
+                if (mat.HasProperty("_Color"))
+                {
+                    mat.color = Color.Lerp(mat.color, flashColor, 0.5f);
+                }
             }
         }
 
@@ -49,7 +55,10 @@ public class Flash : MonoBehaviour
         {
             foreach (Material mat in r.materials)
             {
-                mat.color = originalColors[mat];
+                if (mat.HasProperty("_Color"))
+                {
+                    mat.color = originalColors[mat];
+                }
             }
         }
     }
