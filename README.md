@@ -1,10 +1,14 @@
 # robots-rock
 
+# INFO
+
 Game: ROBOBALL
 
 Author: RYAN THOMPSON
 
 Contact: ryan@egonaut.games, twitter.com/MaximumTheRyan
+
+# OVERVIEW:
 
 Thanks for checking out ROBOBALL!
 
