@@ -5,6 +5,12 @@ using System.Collections;
 public class CameraShake : MonoBehaviour
 {
     Coroutine shakeRoutine;
+    Vector3 orignalPosition;
+
+    private void Awake()
+    {
+        orignalPosition = transform.position;    
+    }
 
     /// <summary>
     /// Shake the camera on x and y axis.
@@ -22,9 +28,21 @@ public class CameraShake : MonoBehaviour
         shakeRoutine = StartCoroutine(Shake(config.duration, config.xIntensity, config.yIntensity));
     }
 
+    /// <summary>
+    /// Stops the shaking coroutine and return camera to original start position.
+    /// </summary>
+    public void StopShaking()
+    {
+        if(shakeRoutine != null)
+        {
+            StopCoroutine(shakeRoutine);
+        }
+        transform.position = orignalPosition;
+    }
+
     public IEnumerator Shake(float duration, float xShake, float yShake)
     {
-        Vector3 orignalPosition = transform.position;
+        orignalPosition = transform.position;
         float elapsed = 0f;
 
         while (elapsed < duration)

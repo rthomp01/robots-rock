@@ -170,7 +170,7 @@ public class RobotController : MonoBehaviour
     {
         if (punchClip != null)
         {
-            sfxPlayer.PlayOneShot(punchClip);
+            sfxPlayer.PlayOneShotWithVariedPitch(punchClip);
         }
     }
 
@@ -181,7 +181,7 @@ public class RobotController : MonoBehaviour
     {
         if (footstepClip != null)
         {
-            sfxPlayer.PlayOneShot(footstepClip);
+            sfxPlayer.PlayOneShotWithVariedPitch(footstepClip);
         }
 
         if (foot == "Left")

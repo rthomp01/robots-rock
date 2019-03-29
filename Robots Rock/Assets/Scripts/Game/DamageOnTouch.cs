@@ -66,7 +66,7 @@ public class DamageOnTouch : MonoBehaviour
     {
         if(onHitSFX != null)
         {
-            FindObjectOfType<SFXPlayer>().PlayOneShot(onHitSFX);
+            FindObjectOfType<SFXPlayer>().PlayOneShotWithVariedPitch(onHitSFX);
         }
 
         if (onHitEffect != null)

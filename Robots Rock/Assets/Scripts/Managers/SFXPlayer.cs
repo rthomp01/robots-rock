@@ -13,7 +13,7 @@ public class SFXPlayer : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    public void PlayOneShot(AudioClip clip)
+    public void PlayOneShotWithVariedPitch(AudioClip clip)
     {
         if (clip == null)
         {
@@ -22,6 +22,19 @@ public class SFXPlayer : MonoBehaviour
         }
 
         source.pitch = Random.Range(0.95f, 1.05f);
+        source.clip = clip;
+        source.PlayOneShot(clip);
+        source.pitch = 1.0f;
+    }
+
+    public void PlayOneShot(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            Debug.Log("SFXPlayer could not play because the supplied AudioClip was not set.");
+            return;
+        }
+
         source.clip = clip;
         source.PlayOneShot(clip);
     }
