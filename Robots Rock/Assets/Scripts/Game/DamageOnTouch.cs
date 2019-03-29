@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageOnTouch : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DamageOnTouch : MonoBehaviour
 
     public int damageAmount = 1;
     public bool disableOnHit = true;
+
+    public AudioClip onHitSFX;
 
     private void Awake()
     {
@@ -60,6 +63,11 @@ public class DamageOnTouch : MonoBehaviour
 
     public void PlayHitEffect()
     {
+        if(onHitSFX != null)
+        {
+            FindObjectOfType<SFXPlayer>().PlayOneShot(onHitSFX);
+        }
+
         if (onHitEffect != null)
         {
             onHitEffect.transform.position = transform.position;

@@ -187,3 +187,4 @@ MonoBehaviour:
   onHitEffect: {fileID: 19800000, guid: a0aa8dacc5cff7b41865ff06fab1f501, type: 3}
   damageAmount: 1
   disableOnHit: 1
+  onHitSFX: {fileID: 8300000, guid: a245475b161eac148bc3b152d5c925d6, type: 3}

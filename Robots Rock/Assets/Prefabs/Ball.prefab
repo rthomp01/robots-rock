@@ -189,3 +189,4 @@ MonoBehaviour:
     type: 3}
   damageAmount: 1
   disableOnHit: 1
+  onHitSFX: {fileID: 8300000, guid: c85e65d2ed734e642be2ffe92d44712e, type: 3}

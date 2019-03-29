@@ -16,10 +16,13 @@ public class RobotController : MonoBehaviour
     public ControllerConfig config;
     public SphereCollider punchCollider;
 
+    public SFXPlayer sfxPlayer;
+
     [Space()]
     [Header("Controller Events")]
-    public UnityEvent robotJumped;
-    public UnityEvent robotLanded;
+    public UnityEvent robotJumpedEvent;
+    public UnityEvent robotLandedEvent;
+    public UnityEvent robotPunchFXEvent;
 
     //private
     private Quaternion goalRotation;
@@ -100,7 +103,7 @@ public class RobotController : MonoBehaviour
     /// </summary>
     public void PunchActivated()
     {
-        if(punchCollider)
+        if (punchCollider)
         {
             punchCollider.enabled = true;
         }
@@ -129,15 +132,27 @@ public class RobotController : MonoBehaviour
     }
 
     /// <summary>
+    /// Triggered by event during the NormalPunch_Modified animation clip. Used 
+    /// to signal the timing for the punch SFX to be triggered.
+    /// </summary>
+    public void PlayPunchSFX()
+    {
+        if (robotPunchFXEvent != null)
+        {
+            robotPunchFXEvent.Invoke();
+        }
+    }
+
+    /// <summary>
     /// Jump handled by parabolic lerp. airborneDuration is used to match the time spent in air
     /// with the visuals of the jump animation provided. height/distance/duration configurable
     /// in ControllerConfig.
     /// </summary>
     IEnumerator JumpRoutine()
     {
-        if(robotJumped != null)
+        if (robotJumpedEvent != null)
         {
-            robotJumped.Invoke();
+            robotJumpedEvent.Invoke();
         }
 
         Vector3 goal = transform.position + transform.forward * config.jumpDistance;
@@ -153,9 +168,9 @@ public class RobotController : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        if(robotLanded != null)
+        if (robotLandedEvent != null)
         {
-            robotLanded.Invoke();
+            robotLandedEvent.Invoke();
         }
     }
 }

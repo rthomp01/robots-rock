@@ -26,4 +26,8 @@ public class RobotAnimationEventHandler : MonoBehaviour
     {
         controller.PunchEnded();
     }
+    public void PunchSFX()
+    {
+        controller.PlayPunchSFX();
+    }
 }

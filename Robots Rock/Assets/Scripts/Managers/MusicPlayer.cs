@@ -5,10 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class MusicPlayer : MonoBehaviour
 {
-    public AudioClip titleMusic;
-    public AudioClip gameplayMusic;
-    public AudioClip gameoverMusic;
-
     private AudioSource source;
 
     private void Awake()
@@ -16,20 +12,29 @@ public class MusicPlayer : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    public void PlaySong(string song)
+    public void PlayClipLooping(AudioClip clip)
     {
-        switch (song)
+        if (clip == null)
         {
-            case "gameplay":
-                source.loop = true;
-                source.clip = gameplayMusic;
-                break;
-            case "gameover":
-                source.loop = false;
-                source.clip = gameoverMusic;
-                break;
+            Debug.Log("MusicPlayer could not play because the supplied AudioClip was not set.");
+            return;
         }
 
+        source.loop = true;
+        source.clip = clip;
+        source.Play();
+    }
+
+    public void PlayClipOnce(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            Debug.Log("MusicPlayer could not play because the supplied AudioClip was not set.");
+            return;
+        }
+
+        source.loop = false;
+        source.clip = clip;
         source.Play();
     }
 }
