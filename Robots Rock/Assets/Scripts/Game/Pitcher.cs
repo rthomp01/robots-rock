@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Pitcher : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Pitcher : MonoBehaviour
     public bool IsPitching { get; private set; }
 
     private Coroutine pitchRoutine;
+
+    public UnityEvent pitchEvent;
 
     private void OnEnable()
     {
@@ -47,6 +50,11 @@ public class Pitcher : MonoBehaviour
                 spawnTransform.position, spawnTransform.rotation);
      
             rb.velocity = spawnTransform.forward * pitchableObjects[prefabIndex].baseSpeed * pitchSpeedModifier;
+
+            if(pitchEvent != null)
+            {
+                pitchEvent.Invoke();
+            }
 
             yield return new WaitForSeconds(config.pitchFrequency);
         }

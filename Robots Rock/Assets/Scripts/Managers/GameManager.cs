@@ -8,18 +8,28 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //Set in Inspector
+    [Header("Game Settings")]
     public GameLoopConfig gameLoopConfig;
     public RobotController playerController;
     public Pitcher pitcher;
+
+    [Space()]
+    [Header("HUD")]
+    public GameObject HUD;
     public Text messageText;
     public Text promptText;
     public Image titlePanel;
-    public GameObject HUD;
+
+    [Space()]
+    [Header("SFX")]
+    public SFXPlayer sfxPlayer;
+    public AudioClip submitClip;
     //
 
     public bool IsGameOver { get; private set; }
     public bool PlayerWins { get; private set; }
 
+    [Space()]
     public UnityEvent gameplayStartEvent;
     public UnityEvent gameoverEvent;
 
@@ -49,6 +59,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                sfxPlayer.PlayOneShot(submitClip);
                 titlePanel.gameObject.SetActive(false);
                 promptText.gameObject.SetActive(false);
                 SetMessageText("READY?", gameLoopConfig.readyWaitDelay);
@@ -101,6 +112,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                sfxPlayer.PlayOneShot(submitClip);
                 break;
             }
             yield return null;

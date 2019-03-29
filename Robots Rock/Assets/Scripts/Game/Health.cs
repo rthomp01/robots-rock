@@ -7,6 +7,8 @@ public class Health : MonoBehaviour, IDamageable
 {
     //Set in Inspector
     public HealthConfig healthConfig;
+    public bool canBeKilled = true;
+    [Space()]
     public UnityEvent onDeath;
     public UnityEvent onHit;
     //
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour, IDamageable
             onHit.Invoke();
         }
 
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 && canBeKilled)
         {
             Die();
         }
