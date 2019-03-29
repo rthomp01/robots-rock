@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1.4
   airborneSpeed: 1
-  jumpHeight: 2
-  jumpDistance: 1.75
+  jumpHeight: 1.9
+  jumpDistance: 1.85
   airborneDuration: 0.725
   turnRate: 720
   inputDampening: 0.1
