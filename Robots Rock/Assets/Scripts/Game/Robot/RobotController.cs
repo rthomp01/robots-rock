@@ -16,6 +16,8 @@ public class RobotController : MonoBehaviour
     public ControllerConfig config;
     public SphereCollider punchCollider;
     public ParticleSystem footstepEffect;
+    public Transform leftFootTransform;
+    public Transform rightFootTransform;
 
     [Space()]
     [Header("SFX")]
@@ -155,12 +157,25 @@ public class RobotController : MonoBehaviour
     /// <summary>
     /// Triggered by an event during the walk animation so we can time effects.
     /// </summary>
-    public void Footstep()
+    public void Footstep(string foot)
     {
         if (footstepClip != null)
         {
             sfxPlayer.PlayOneShot(footstepClip);
         }
+
+        if (foot == "Left")
+        {
+            footstepEffect.transform.position = leftFootTransform.position;
+            footstepEffect.transform.rotation = leftFootTransform.rotation;
+        }
+        else
+        {
+            footstepEffect.transform.position = rightFootTransform.position;
+            footstepEffect.transform.rotation = rightFootTransform.rotation;
+        }
+
+        footstepEffect.Play();
     }
 
     /// <summary>

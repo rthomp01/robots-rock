@@ -30,8 +30,8 @@ public class RobotAnimationEventHandler : MonoBehaviour
     {
         controller.PlayPunchSFX();
     }
-    public void Footstep()
+    public void Footstep(string foot)
     {
-        controller.Footstep();
+        controller.Footstep(foot);
     }
 }
