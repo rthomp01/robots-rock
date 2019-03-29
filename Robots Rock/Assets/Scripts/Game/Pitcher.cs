@@ -82,6 +82,7 @@ public class Pitcher : MonoBehaviour
                     Rigidbody rb = projectiles[projectileConfig][i];
                     rb.transform.SetPositionAndRotation(spawnTransform.position, spawnTransform.rotation);
                     rb.velocity = spawnTransform.forward * projectileConfig.baseSpeed * pitchSpeedModifier;
+                    //Layer is used here to differentiate between Player and Enemy controlled projectiles
                     rb.gameObject.layer = gameObject.layer;
                     rb.gameObject.SetActive(true);
                     break;

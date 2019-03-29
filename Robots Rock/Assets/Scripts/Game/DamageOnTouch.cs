@@ -60,6 +60,16 @@ public class DamageOnTouch : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        //Last second addition here, please forgive. Ideally I would have implemented
+        //a full subscriber/listener system and trigger some game event here that the
+        //hud could be listening for. But the player deserved points for jumping over
+        //fireballs.
+        if(gameObject.CompareTag("Fireball") && other.gameObject.CompareTag("Boundary"))
+        {
+            FindObjectOfType<HUD>().AddPlayerScore();
+        }
+        //
     }
 
     public void PlayHitEffect()

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - RobotFist
   - Ball
+  - Fireball
+  - Boundary
   layers:
   - Default
   - TransparentFX

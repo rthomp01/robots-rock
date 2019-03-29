@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 684733105}
   m_Layer: 0
   m_Name: Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1938,6 +1938,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2031802860}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   unPauseEvent:
@@ -1954,6 +1965,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2031802860}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2703,18 +2725,18 @@ MonoBehaviour:
 
     SPACE - JUMP
 
-    ESC- TOGGLE THIS MENU
+    ESC - TOGGLE THIS MENU
 
 
     GOAL:
 
-    TIME YOUR PUNCH TO HIT THE WHITE BALLS BACK AT THE PITCHER TO SCORE POINTS.
+    TIME YOUR PUNCH TO HIT THE WHITE BALLS BACK AT THE PITCHER TO SCORE A POINT.
 
 
     HAZARDS:
 
     RED BALLS WILL CAUSE DAMAGE TO YOU WHETHER YOU PUNCH THEM OR NOT. TRY JUMPING
-    OVER!'
+    OVER! AWARDS 1 POINT ON SUCCESSFUL JUMP.'
 --- !u!222 &2111028522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2819,11 +2841,6 @@ PrefabInstance:
       propertyPath: pitchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 853341192}
-    - target: {fileID: 4052569520595696824, guid: c5eb4e09393cf364ca2f2b8c06edb960,
-        type: 3}
-      propertyPath: pitchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
     - target: {fileID: 1714165142705809742, guid: c5eb4e09393cf364ca2f2b8c06edb960,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2899,11 +2916,6 @@ PrefabInstance:
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 853341192}
-    - target: {fileID: 2180643958319692509, guid: c5eb4e09393cf364ca2f2b8c06edb960,
-        type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5eb4e09393cf364ca2f2b8c06edb960, type: 3}
 --- !u!4 &3324401599717560031 stripped
@@ -2949,16 +2961,6 @@ PrefabInstance:
       propertyPath: robotLandedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 534669906}
-    - target: {fileID: 5881507198934360535, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: robotJumpedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
-    - target: {fileID: 5881507198934360535, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: robotLandedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
     - target: {fileID: 8653241591223851683, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3034,16 +3036,6 @@ PrefabInstance:
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 853341192}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
     - target: {fileID: 7192605333602556330, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
         type: 3}
       propertyPath: onReflectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3054,10 +3046,5 @@ PrefabInstance:
       propertyPath: onReflectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 853341192}
-    - target: {fileID: 7192605333602556330, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onReflectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShotWithVariedPitch
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b7bcd2e6cfbcf47815c103d30f8110, type: 3}

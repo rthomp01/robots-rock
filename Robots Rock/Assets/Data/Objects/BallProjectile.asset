@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BallProjectile
   m_EditorClassIdentifier: 
   prefab: {fileID: 811936248728507845, guid: 6d0b5c8c25af5634b989cfd23691d354, type: 3}
-  baseSpeed: 2
+  baseSpeed: 2.5
