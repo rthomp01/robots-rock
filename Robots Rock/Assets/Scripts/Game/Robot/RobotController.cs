@@ -94,6 +94,19 @@ public class RobotController : MonoBehaviour
         transform.rotation = goalRotation;
     }
 
+    public void Died()
+    {
+        StateMachine.ChangeState(new RobotStateDead(this));
+    }
+
+    public void Hurt()
+    {
+        if (!GetComponent<Health>().IsDead)
+        {
+            StateMachine.ChangeState(new RobotStateHurt(this));
+        }
+    }
+
     /// <summary>
     /// Triggered by an event during the Jump_Modified animation clip. Used to time
     /// vertical motion in sync with the animation provided.

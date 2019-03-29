@@ -13,6 +13,7 @@ public class Health : MonoBehaviour, IDamageable
     public UnityEvent onHit;
     //
 
+    public bool IsDead { get { return CurrentHealth <= 0; } private set { IsDead = value; } }
     public int CurrentHealth { get; private set; }
 
     private void Awake()
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
 
-        if(onHit != null)
+        if (onHit != null)
         {
             onHit.Invoke();
         }

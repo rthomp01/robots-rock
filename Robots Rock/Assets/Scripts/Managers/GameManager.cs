@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 sfxPlayer.PlayOneShot(submitClip);
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(1.0f);
                 break;
             }
             yield return null;

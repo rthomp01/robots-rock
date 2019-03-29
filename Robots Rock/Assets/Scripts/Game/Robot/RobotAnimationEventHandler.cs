@@ -34,4 +34,8 @@ public class RobotAnimationEventHandler : MonoBehaviour
     {
         controller.Footstep(foot);
     }
+    public void HurtEnded()
+    {
+        controller.StateMachine.ChangeState(new RobotStateGrounded(controller));
+    }
 }
