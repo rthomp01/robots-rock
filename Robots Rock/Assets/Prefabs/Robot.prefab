@@ -83,6 +83,8 @@ MonoBehaviour:
   punchCollider: {fileID: 2024642783386551129}
   footstepEffect: {fileID: 6031751524418409190, guid: f3c1d2d43fe44a246bc41b1796e7df96,
     type: 3}
+  jumpLandingEffect: {fileID: 6031751524418409190, guid: a45392c4ec018434187dcd90cd3b1684,
+    type: 3}
   leftFootTransform: {fileID: 6542975143733433526}
   rightFootTransform: {fileID: 6542975143733433504}
   sfxPlayer: {fileID: 0}

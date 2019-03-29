@@ -16,6 +16,7 @@ public class RobotController : MonoBehaviour
     public ControllerConfig config;
     public SphereCollider punchCollider;
     public ParticleSystem footstepEffect;
+    public ParticleSystem jumpLandingEffect;
     public Transform leftFootTransform;
     public Transform rightFootTransform;
 
@@ -54,6 +55,10 @@ public class RobotController : MonoBehaviour
         if (footstepEffect != null)
         {
             footstepEffect = Instantiate<ParticleSystem>(footstepEffect, transform.position, Quaternion.identity);
+        }
+        if (jumpLandingEffect != null)
+        {
+            jumpLandingEffect = Instantiate<ParticleSystem>(jumpLandingEffect, transform.position, Quaternion.identity);
         }
     }
 
@@ -207,5 +212,8 @@ public class RobotController : MonoBehaviour
         {
             robotLandedEvent.Invoke();
         }
+
+        jumpLandingEffect.transform.position = transform.position;
+        jumpLandingEffect.Play();
     }
 }
