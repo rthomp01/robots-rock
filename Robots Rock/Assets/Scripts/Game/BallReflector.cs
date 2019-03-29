@@ -17,6 +17,7 @@ public class BallReflector : MonoBehaviour
         if (onReflectEffect != null)
         {
             onReflectEffect = Instantiate(onReflectEffect, transform.position, Quaternion.identity);
+            onReflectEffect.transform.SetParent(transform);
         }
     }
 

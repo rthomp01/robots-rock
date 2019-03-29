@@ -13,11 +13,12 @@ public class DamageOnTouch : MonoBehaviour
 
     public AudioClip onHitSFX;
 
-    private void Awake()
+    private void Start()
     {
         if (onHitEffect != null)
         {
             onHitEffect = Instantiate<ParticleSystem>(onHitEffect, transform.position, transform.rotation);
+            onHitEffect.transform.SetParent(transform.parent);
         }
     }
 
@@ -70,8 +71,7 @@ public class DamageOnTouch : MonoBehaviour
 
         if (onHitEffect != null)
         {
-            onHitEffect.transform.position = transform.position;
-            onHitEffect.transform.rotation = transform.rotation;
+            onHitEffect.transform.SetPositionAndRotation(transform.position, transform.rotation);
             onHitEffect.Play();
         }
     }

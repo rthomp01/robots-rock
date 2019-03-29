@@ -55,10 +55,12 @@ public class RobotController : MonoBehaviour
         if (footstepEffect != null)
         {
             footstepEffect = Instantiate<ParticleSystem>(footstepEffect, transform.position, Quaternion.identity);
+            footstepEffect.transform.SetParent(transform);
         }
         if (jumpLandingEffect != null)
         {
             jumpLandingEffect = Instantiate<ParticleSystem>(jumpLandingEffect, transform.position, Quaternion.identity);
+            jumpLandingEffect.transform.SetParent(transform);
         }
     }
 
@@ -184,13 +186,11 @@ public class RobotController : MonoBehaviour
 
         if (foot == "Left")
         {
-            footstepEffect.transform.position = leftFootTransform.position;
-            footstepEffect.transform.rotation = leftFootTransform.rotation;
+            footstepEffect.transform.SetPositionAndRotation(leftFootTransform.position, leftFootTransform.rotation);
         }
         else
         {
-            footstepEffect.transform.position = rightFootTransform.position;
-            footstepEffect.transform.rotation = rightFootTransform.rotation;
+            footstepEffect.transform.SetPositionAndRotation(rightFootTransform.position, rightFootTransform.rotation);
         }
 
         footstepEffect.Play();

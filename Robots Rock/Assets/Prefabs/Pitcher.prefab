@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2101297070296283027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8416420201093801869}
+  m_Layer: 10
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8416420201093801869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101297070296283027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1714165142705809742}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3802460260757735846
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,8 +255,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1714165142705809742}
-  - component: {fileID: 4052569520595696824}
   - component: {fileID: 8568801974876362215}
+  - component: {fileID: 4052569520595696824}
   - component: {fileID: 2180643958319692509}
   - component: {fileID: 2001896032}
   m_Layer: 10
@@ -249,9 +279,23 @@ Transform:
   m_Children:
   - {fileID: 459245245963687106}
   - {fileID: 4141861652994037552}
+  - {fileID: 8416420201093801869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8568801974876362215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778159174423093640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 2}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &4052569520595696824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +312,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a3b59a8be5c3fd45bcf7d778e94a429, type: 2}
   - {fileID: 11400000, guid: 4a3b59a8be5c3fd45bcf7d778e94a429, type: 2}
   - {fileID: 11400000, guid: 557eb525640492140bfd43c03c1b2d61, type: 2}
+  poolAmount: 2
+  objectPoolContainer: {fileID: 2101297070296283027}
   config: {fileID: 11400000, guid: 874c05dedd1a49e45ba673ef2e8aac8b, type: 2}
   spawnTransform: {fileID: 4141861652994037552}
   pitchEvent:
@@ -287,19 +333,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!65 &8568801974876362215
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778159174423093640}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 2}
-  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &2180643958319692509
 MonoBehaviour:
   m_ObjectHideFlags: 0
