@@ -8,10 +8,7 @@ public class BallReflector : MonoBehaviour
     public float reflectPower = 3.0f;
     public bool setToReflectorLayer = true;
 
-    public CameraShakeEvent cameraShakeEvent;
-    public float xShake;
-    public float yShake;
-    public float shakeDuration;
+    public UnityEvent onReflectEvent;
 
     public ParticleSystem onReflectEffect;
 
@@ -19,7 +16,7 @@ public class BallReflector : MonoBehaviour
     {
         if (onReflectEffect != null)
         {
-            onReflectEffect = Instantiate(onReflectEffect, transform.position, transform.rotation);
+            onReflectEffect = Instantiate(onReflectEffect, transform.position, Quaternion.identity);
         }
     }
 
@@ -40,10 +37,12 @@ public class BallReflector : MonoBehaviour
             target.gameObject.layer = gameObject.layer;
         }
 
-        if (cameraShakeEvent != null)
+        if (onReflectEvent != null)
         {
-            cameraShakeEvent.Invoke(shakeDuration, xShake, yShake);
+            onReflectEvent.Invoke();
         }
+
+        PlayReflectEffect();
     }
 
     void PlayReflectEffect()
@@ -51,7 +50,6 @@ public class BallReflector : MonoBehaviour
         if (onReflectEffect != null)
         {
             onReflectEffect.transform.position = transform.position;
-            onReflectEffect.transform.rotation = transform.rotation;
             onReflectEffect.Play();
         }
     }

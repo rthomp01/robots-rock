@@ -2,8 +2,6 @@
 using UnityEngine.Events;
 using System.Collections;
 
-[System.Serializable] public class CameraShakeEvent : UnityEvent<float, float, float> { };
-
 public class CameraShake : MonoBehaviour
 {
     Coroutine shakeRoutine;
@@ -15,13 +13,13 @@ public class CameraShake : MonoBehaviour
     /// <param name="xShake">Max distance shake will move on the x-axis.</param>
     /// <param name="yShake">Max distance shake will move on the y-axis.</param>
     [ExecuteInEditMode]
-    public void ShakeCamera(float duration, float xShake, float yShake)
+    public void ShakeCamera(CameraShakeConfig config)
     {
-        if(shakeRoutine != null)
+        if (shakeRoutine != null)
         {
             StopCoroutine(shakeRoutine);
         }
-        shakeRoutine = StartCoroutine(Shake(duration, xShake, yShake));
+        shakeRoutine = StartCoroutine(Shake(config.duration, config.xIntensity, config.yIntensity));
     }
 
     public IEnumerator Shake(float duration, float xShake, float yShake)
