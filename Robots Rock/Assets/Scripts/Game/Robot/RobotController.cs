@@ -15,14 +15,18 @@ public class RobotController : MonoBehaviour
     [Tooltip("Use Create->Configuration->Controller")]
     public ControllerConfig config;
     public SphereCollider punchCollider;
+    public ParticleSystem footstepEffect;
 
+    [Space()]
+    [Header("SFX")]
     public SFXPlayer sfxPlayer;
+    public AudioClip footstepClip;
+    public AudioClip punchClip;
 
     [Space()]
     [Header("Controller Events")]
     public UnityEvent robotJumpedEvent;
     public UnityEvent robotLandedEvent;
-    public UnityEvent robotPunchFXEvent;
 
     //private
     private Quaternion goalRotation;
@@ -44,6 +48,11 @@ public class RobotController : MonoBehaviour
         //default player state is grounded
         StateMachine = new FiniteStateMachine();
         StateMachine.ChangeState(new RobotStateGrounded(this));
+
+        if (footstepEffect != null)
+        {
+            footstepEffect = Instantiate<ParticleSystem>(footstepEffect, transform.position, Quaternion.identity);
+        }
     }
 
     private void Update()
@@ -137,9 +146,20 @@ public class RobotController : MonoBehaviour
     /// </summary>
     public void PlayPunchSFX()
     {
-        if (robotPunchFXEvent != null)
+        if (punchClip != null)
         {
-            robotPunchFXEvent.Invoke();
+            sfxPlayer.PlayOneShot(punchClip);
+        }
+    }
+
+    /// <summary>
+    /// Triggered by an event during the walk animation so we can time effects.
+    /// </summary>
+    public void Footstep()
+    {
+        if (footstepClip != null)
+        {
+            sfxPlayer.PlayOneShot(footstepClip);
         }
     }
 
