@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Text messageText;
     public Text promptText;
     public Image titlePanel;
+    public GameObject HUD;
     //
 
     public bool IsGameOver { get; private set; }
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
         pitcher.enabled = true;
 
         SetMessageText("GO!", gameLoopConfig.goMessageActiveDelay);
+        HUD.SetActive(true);
+
         yield return new WaitForSeconds(gameLoopConfig.goMessageActiveDelay);
 
         while (!IsGameOver)

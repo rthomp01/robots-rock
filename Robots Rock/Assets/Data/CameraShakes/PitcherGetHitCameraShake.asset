@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a83c4ce2ea3a4b418872029111c1355, type: 3}
   m_Name: PitcherGetHitCameraShake
   m_EditorClassIdentifier: 
-  duration: 0.2
+  duration: 0.5
   xIntensity: 0.4
   yIntensity: 0.4

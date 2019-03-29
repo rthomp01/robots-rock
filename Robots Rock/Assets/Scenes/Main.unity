@@ -366,13 +366,15 @@ GameObject:
   m_Component:
   - component: {fileID: 345078062}
   - component: {fileID: 345078061}
+  - component: {fileID: 345078064}
+  - component: {fileID: 345078063}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &345078061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,15 +387,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984dc9daf677f4d4ba977e0e1f34699a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 263959197}
   healthBars:
   - {fileID: 1277635670}
   - {fileID: 1130936570}
   - {fileID: 868190320}
   healthBarColors:
-  - {r: 0.699, g: 0.14189701, b: 0.14189701, a: 0}
-  - {r: 1, g: 0.60156864, b: 0.19999999, a: 0}
-  - {r: 0.19999999, g: 1, b: 0.19999999, a: 0}
+  - {r: 0.699, g: 0.14189701, b: 0.14189701, a: 1}
+  - {r: 1, g: 0.60156864, b: 0.19999999, a: 1}
+  - {r: 0.19999999, g: 1, b: 0.19999999, a: 1}
 --- !u!224 &345078062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -415,6 +417,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!111 &345078063
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345078060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 52495bff87cbf904289bdc987b10a41f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 52495bff87cbf904289bdc987b10a41f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!225 &345078064
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345078060}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1408,7 @@ MonoBehaviour:
   messageText: {fileID: 2031802860}
   promptText: {fileID: 1885897507}
   titlePanel: {fileID: 1300146008}
+  HUD: {fileID: 345078060}
 --- !u!4 &1369835535
 Transform:
   m_ObjectHideFlags: 0
@@ -1977,6 +2008,11 @@ PrefabInstance:
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 534669906}
+    - target: {fileID: 2180643958319692509, guid: c5eb4e09393cf364ca2f2b8c06edb960,
+        type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 345078061}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5eb4e09393cf364ca2f2b8c06edb960, type: 3}
 --- !u!1001 &3807273476024568735
@@ -2048,39 +2084,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
         type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1369835534}
     - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
         type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 345078061}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: RemoveHealth
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082450048611629387, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
-        type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7192605333602556330, guid: 23b7bcd2e6cfbcf47815c103d30f8110,
         type: 3}
       propertyPath: onReflectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target

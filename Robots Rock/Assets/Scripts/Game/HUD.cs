@@ -11,6 +11,8 @@ public class HUD : MonoBehaviour
     private int currentHealthBarIndex;
     public Color[] healthBarColors;
 
+    private int playerScore;
+
     private void OnEnable()
     {
         currentHealthBarIndex = healthBars.Length - 1;
@@ -32,8 +34,9 @@ public class HUD : MonoBehaviour
         }
     }
 
-    public void SetPlayerScore(int score)
+    public void AddPlayerScore()
     {
-        scoreText.text = string.Format("SCORE:{0}", score);
+        playerScore++;
+        scoreText.text = string.Format("SCORE: {0}", playerScore);
     }
 }
