@@ -139,7 +139,7 @@ public class RobotController : MonoBehaviour
             Rigidbody.MovePosition(Vector3.Lerp(origin, goal, timer) + Vector3.up * height);
 
             timer += Time.deltaTime / config.airborneDuration;
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
     }
 }

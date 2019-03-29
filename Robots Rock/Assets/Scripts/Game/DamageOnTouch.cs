@@ -31,17 +31,34 @@ public class DamageOnTouch : MonoBehaviour
 
             Debug.LogFormat("{0} hit {1} for {2} damage!", transform.name,
                 other.transform.name, damageAmount);
+        }
 
-            if (disableOnHit)
+        Hit(other.gameObject);
+    }
+
+    void Hit(GameObject other)
+    {
+        PlayHitEffect();
+
+        //If two projectiles collide we can play both hit effects and
+        //cancel eachother out.
+        DamageOnTouch d = other.GetComponent<DamageOnTouch>();
+        if(d != null)
+        {
+            d.PlayHitEffect();
+            if(d.disableOnHit)
             {
-                gameObject.SetActive(false);
+                d.gameObject.SetActive(false);
             }
         }
 
-        PlayOnHitEffect();
+        if (disableOnHit)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
-    void PlayOnHitEffect()
+    public void PlayHitEffect()
     {
         if (onHitEffect != null)
         {
