@@ -6,7 +6,7 @@ Author: RYAN THOMPSON
 
 Contact: ryan@egonaut.games, twitter.com/MaximumTheRyan
 
-Current Build: https://www.dropbox.com/s/gwl1y6cxkfs3qks/RoboBall.zip?dl=0
+Current Build: https://www.dropbox.com/s/7f5ew25ubahwte5/RoboBall.zip?dl=0
 
 # OVERVIEW:
 
@@ -27,3 +27,5 @@ LEFT CLICK - PUNCH (TRY TO TIME YOUR PUNCHES SO THAT THE TIP OF YOUR PUNCH JUST 
 SPACE - JUMP (JUMP OVER NASTY FIREBALLS)
 
 ESC - PAUSE/HOW TO PLAY SCREEN
+
+Q - (WHILE PAUSED) QUIT GAME
