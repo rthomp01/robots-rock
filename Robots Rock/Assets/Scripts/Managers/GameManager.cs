@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Text messageText;
     public Text promptText;
     public Image titlePanel;
+    public Pause pausePanel;
 
     [Space()]
     [Header("SFX")]
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
                 sfxPlayer.PlayOneShot(submitClip);
                 titlePanel.gameObject.SetActive(false);
                 promptText.gameObject.SetActive(false);
+                pausePanel.IsPausable = true;
                 SetMessageText("READY?", gameLoopConfig.readyWaitDelay);
                 yield return new WaitForSeconds(gameLoopConfig.readyWaitDelay);
                 break;
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndGameRoutine()
     {
+        pausePanel.IsPausable = false;
         playerController.enabled = false;
         pitcher.enabled = false;
 

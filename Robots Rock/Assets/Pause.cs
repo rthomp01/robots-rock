@@ -10,44 +10,47 @@ public class Pause : MonoBehaviour
     public UnityEvent pauseEvent;
     public UnityEvent unPauseEvent;
 
-    public 
+    public bool IsPausable { get; set; }
+
     void Start()
     {
         pausePanel.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IsPausable && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pausePanel.activeSelf)
+            if(!pausePanel.activeSelf)
             {
-                Time.timeScale = 0;
-                pausePanel.SetActive(true);
-
-                if(pauseEvent != null)
-                {
-                    pauseEvent.Invoke();
-                }
+                PauseGame();
             }
             else
             {
-                Time.timeScale = 1;
-                pausePanel.SetActive(false);
-
-                if(unPauseEvent != null)
-                {
-                    unPauseEvent.Invoke();
-                }
+                ContinueGame();
             }
         }
     }
-    private void PauseGame()
-    {
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+
+        if (pauseEvent != null)
+        {
+            pauseEvent.Invoke();
+        }
     }
-    private void ContinueGame()
-    {
 
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+
+        if (unPauseEvent != null)
+        {
+            unPauseEvent.Invoke();
+        }
     }
 }
