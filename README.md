@@ -1,5 +1,3 @@
-# robots-rock
-
 # INFO
 
 Game: ROBOBALL
