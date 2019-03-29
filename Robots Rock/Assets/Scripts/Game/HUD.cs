@@ -12,6 +12,12 @@ public class HUD : MonoBehaviour
     public Color[] healthBarColors;
 
     private int playerScore;
+    Animation scoreAnimation;
+
+    private void Awake()
+    {
+        scoreAnimation = scoreText.GetComponent<Animation>();    
+    }
 
     private void OnEnable()
     {
@@ -38,5 +44,9 @@ public class HUD : MonoBehaviour
     {
         playerScore++;
         scoreText.text = string.Format("SCORE: {0}", playerScore);
+        if (scoreAnimation != null)
+        {
+            scoreAnimation.Play("BouncyScale");
+        }
     }
 }
