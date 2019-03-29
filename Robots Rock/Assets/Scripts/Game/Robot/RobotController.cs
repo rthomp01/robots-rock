@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class RobotController : MonoBehaviour
@@ -14,6 +15,11 @@ public class RobotController : MonoBehaviour
     [Tooltip("Use Create->Configuration->Controller")]
     public ControllerConfig config;
     public SphereCollider punchCollider;
+
+    [Space()]
+    [Header("Controller Events")]
+    public UnityEvent robotJumped;
+    public UnityEvent robotLanded;
 
     //private
     private Quaternion goalRotation;
@@ -129,6 +135,11 @@ public class RobotController : MonoBehaviour
     /// </summary>
     IEnumerator JumpRoutine()
     {
+        if(robotJumped != null)
+        {
+            robotJumped.Invoke();
+        }
+
         Vector3 goal = transform.position + transform.forward * config.jumpDistance;
         Vector3 origin = transform.position;
 
@@ -140,6 +151,11 @@ public class RobotController : MonoBehaviour
 
             timer += Time.deltaTime / config.airborneDuration;
             yield return new WaitForFixedUpdate();
+        }
+
+        if(robotLanded != null)
+        {
+            robotLanded.Invoke();
         }
     }
 }
