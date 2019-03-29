@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver { get; private set; }
     public bool PlayerWins { get; private set; }
 
+    public UnityEvent gameplayStartEvent;
+    public UnityEvent gameoverEvent;
+
     Coroutine messageRoutine;
 
     private void Start()
@@ -62,7 +65,11 @@ public class GameManager : MonoBehaviour
         pitcher.enabled = true;
 
         SetMessageText("GO!", gameLoopConfig.goMessageActiveDelay);
-        HUD.SetActive(true);
+
+        if(gameplayStartEvent != null)
+        {
+            gameplayStartEvent.Invoke();
+        }
 
         yield return new WaitForSeconds(gameLoopConfig.goMessageActiveDelay);
 
@@ -80,6 +87,11 @@ public class GameManager : MonoBehaviour
         titlePanel.gameObject.SetActive(true);
         string gameOverMessage = PlayerWins ? "YOU WIN" : "YOU LOSE";
         SetMessageText(gameOverMessage, 0.0f);
+
+        if (gameoverEvent != null)
+        {
+            gameoverEvent.Invoke();
+        }
 
         yield return new WaitForSeconds(gameLoopConfig.gameOverMessageDelay);
 
